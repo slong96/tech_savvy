@@ -55,7 +55,7 @@ a {
   background-color: white;
   margin: auto;
   margin-top: 20px;
-  max-width: 65%;
+  max-width: 700px;
   padding: 20px;
   border-radius: 10px;
 }
@@ -75,7 +75,7 @@ a {
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  max-width: 65%;
+  max-width: 700px;
   padding: 20px;
   border-radius: 10px;
 }
@@ -128,14 +128,16 @@ a {
     text-align: center;
   }
 
+  h2 {
+    font-size: 24px;
+  }
+
   .post-img {
-    height: 40px;
-    max-width: 30px;
+    width: 50%;
   }
   
   .account-img {
-    height: 50px;
-    max-width: 50px;
+    width: 50%;
   }
   
   .all-post-container {
