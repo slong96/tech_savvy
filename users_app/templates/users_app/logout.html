@@ -1,0 +1,15 @@
+{% extends "tech_savvy_app/base.html" %}
+{% block content %}
+
+<body>
+  <div class="user-post-container">
+    <h2>You have been logged out.</h2>
+    <div class="border-top pt-3">
+      <small class="text-muted">
+        <a href="{% url 'login' %}">Log In Again</a>
+      </small>
+    </div>
+  </div>
+</body>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends "tech_savvy_app/base.html" %}
+{% block content %}
+
+<body>
+  <div class="user-post-container">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Delete Comment</legend>
+        <h2>Are you sure you want to delete the comment "{{ object.content }}"</h2>
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+        <!-- https://stackoverflow.com/questions/51776862/django-2-0-back-button-redirecting-to-different-pages-based-on-where-you-came-f -->
+        <a class="btn btn-outline-secondary" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</body>
+
+{% endblock content %}

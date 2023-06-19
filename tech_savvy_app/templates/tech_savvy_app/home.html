@@ -1,0 +1,51 @@
+{% extends "tech_savvy_app/base.html" %}
+{% block content %}
+{% load static %}
+
+<body>
+  <div class="hero-container">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Welcome to the Tech Savvy Blog!</h1>
+        <p>A place where you can talk about tech and learn something new!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-container" style="background-color: rgb(248, 248, 248);">
+    <div class="home-items">
+      <h1 class="home-item-text">View the latest blog post!</h1>
+      <img class="home-img" src="{% static 'tech_savvy_app/home-pics/allpost.PNG' %}">
+    </div>
+  </div>
+
+  <div class="home-container" style="background-color: rgb(241, 241, 241);">
+    <div class="home-items">
+      <img class="home-img" src="{% static 'tech_savvy_app/home-pics/yourpost.PNG' %}">
+      <h1 class="home-item-text">See all your post and other users too!</h1>
+    </div>
+  </div>
+
+  <div class="home-container" style="background-color: rgb(235, 235, 235);">
+    <div class="home-items">
+      <h1 class="home-item-text">Simple and easy to create a post!</h1>
+      <img class="home-img" src="{% static 'tech_savvy_app/home-pics/post.PNG' %}">
+    </div>
+  </div>
+
+  <div class="home-container" style="background-color: rgb(230, 230, 230);">
+    <div class="home-items">
+      <img class="home-img" src="{% static 'tech_savvy_app/home-pics/profile.PNG' %}">
+      <h1 class="home-item-text">Upload a picture to your profile!</h1>
+    </div>
+  </div>
+
+  <div class="home-container" style="background-color: rgb(219, 219, 219);">
+    <div class="home-bottom-items">
+      <h3>Already have an account? <a href="{% url 'login' %}">Login</a></h3>
+      <h3>Want to sign up? <a href="{% url 'register' %}">Register</a></h3>
+    </div>
+  </div>
+</body>
+
+{% endblock content %}

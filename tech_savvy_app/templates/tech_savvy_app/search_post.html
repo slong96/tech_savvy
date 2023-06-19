@@ -1,0 +1,21 @@
+{% extends "tech_savvy_app/base.html" %}
+{% block content %}
+
+  <div class="all-post-container">
+    <h1>Search</h1>
+
+    {% if search_post %}
+      <p>You searched: <strong>{{ search_post }}</strong></p>
+
+      {% for search in search_site %}
+      <ul>
+        <li>{{ search.author }}: <a href="{% url 'post-detail' search.id %}">{{ search.title }}</a> - {{ search.content }} </li>
+      </ul>
+      {% endfor %}
+    {% else %}
+      <p>No matching</p>
+    {% endif %}
+  </div>
+  
+
+{% endblock content %}

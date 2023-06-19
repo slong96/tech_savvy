@@ -1,0 +1,177 @@
+body {
+  background-color: rgb(243, 243, 243);
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: rgb(214, 0, 0);
+}
+
+.post-img {
+  height: 70px;
+  max-width: 65px;
+  margin-right: 16px;
+}
+
+.account-img {
+  height: 120px;
+  max-width: 115px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.scroll {
+  height: min-content;
+  max-height: 400px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.hero-container {
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('https://img.freepik.com/free-vector/crystal-textured-background-illustration_53876-81310.jpg?w=826&t=st=1687131307~exp=1687131907~hmac=5897ca060de1b1b5a859ff8ceccd5f3bb3fc6118b513a8372975e7b2edd28b96');
+  background-position: center;
+}
+
+.home-container {
+  background-color: white;
+}
+
+.hero-text {
+  color: rgb(0, 0, 0);
+}
+
+.alert {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.all-post-container {
+  background-color: white;
+  margin: auto;
+  margin-top: 20px;
+  max-width: 65%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.user-post-container {
+  background-color: white;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 35%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.comments-container {
+  background-color: white;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 65%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.all-post-items {
+  display: flex;
+}
+.paginated-container {
+  margin: auto;
+  max-width: 80%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.comment-add-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  height: 60vh;
+  
+}
+
+.home-img {
+  max-width: 50%;
+  border-radius: 10px;
+}
+
+.home-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.home-bottom-items {
+  text-align: center;
+  padding: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    text-align: center;
+  }
+
+  .post-img {
+    height: 40px;
+    max-width: 30px;
+  }
+  
+  .account-img {
+    height: 50px;
+    max-width: 50px;
+  }
+  
+  .all-post-container {
+    max-width: 100%;
+  }
+
+  .user-post-container {
+    max-width: 100%;
+  }
+
+  .all-post-items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comments-container {
+    max-width: 100%;
+  }
+
+  .alert {
+    max-width: 100%;
+  }
+
+  .home-item-text {
+    font-size: 20px;
+  }
+
+  .home-img {
+    max-width: 60%;
+    padding: 10px;
+  }
+
+  .home-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 30px;
+  }
+}

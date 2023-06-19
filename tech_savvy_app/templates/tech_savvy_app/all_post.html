@@ -1,0 +1,61 @@
+{% extends "tech_savvy_app/base.html" %}
+{% block content %}
+{% load tz %}
+
+<body>
+  <div class="user-post-container" style="text-align: center;">
+    <h1>Latest Posts</h1>
+  </div>
+  
+  {% for post in posts %}
+    <div class="all-post-container">
+      <div class="all-post-items">
+        <img class="rounded post-img" src="{{ post.author.profile.image.url }}">
+        <div>
+          <div>
+            <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+            <!-- django date format {{ post.date_posted|date:"F d, Y" }} -->
+            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+          </div>
+          <h2><a class="" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+          <p class="">{{ post.content }}</p>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <div class="all-post-container">
+      <h1>No Posts</h1>
+    </div>
+  {% endfor %}
+
+  <!-- if page is paginated -->
+  <div class="paginated-container">
+    {% if is_paginated %}
+      <!-- if current page has previous -->
+      {% if page_obj.has_previous %}
+        <a class="btn btn-outline-danger mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-danger mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+      {% endif %}
+      <!-- for loop to loop through the pages -->
+      {% for num in page_obj.paginator.page_range %}
+        <!-- if current page number equals the number that I'm currently on in this loop -->
+        {% if page_obj.number == num %}
+          <a class="btn btn-danger mb-4" href="?page={{ num }}">{{ num }}</a>
+        <!-- else if the page number I'm currently on is greater than the current page and lesser than the current page, -->
+        <!-- show 3 previous pages and 3 next pages -->
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <a class="btn btn-outline-danger mb-4" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+      <!-- if current page has next -->
+      {% if page_obj.has_next %}
+        <a class="btn btn-outline-danger mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <!-- if there are 30 pages, this Last page will equal 30 -->
+        <a class="btn btn-outline-danger mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+      {% endif %}
+    {% endif %}
+  </div>
+</body>
+
+
+{% endblock content %}
