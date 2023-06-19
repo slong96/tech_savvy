@@ -1,3 +1,4 @@
+from typing import Any, Dict
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -15,6 +16,11 @@ class PostListView(ListView):
     ordering = ['-date_posted'] # newest to oldest
     paginate_by = 5
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Latest Posts'
+        return context
+
 
 
 # List of User Post
@@ -31,12 +37,22 @@ class UserPostListView(ListView):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         # return filter author that equals to user that I just got.
         return Post.objects.filter(author=user).order_by('-date_posted')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Your Posts'
+        return context
 
 
 
 # Detail Post
 class PostDetailView(DetailView):
     model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Viewing Post'
+        return context
 
 
 
@@ -50,6 +66,11 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         # running form valid method on parent class
         return super().form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'New Post'
+        return context
 
 
 
@@ -74,6 +95,11 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         # else return false to deny access to update post
         return False
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Update Post'
+        return context
 
 
 
@@ -92,6 +118,11 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         # else return false to deny access to update post
         return False
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Delete Post'
+        return context
     
 
 
@@ -112,6 +143,11 @@ class AddCommentView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         pk = self.kwargs["pk"]
         return reverse("post-detail", kwargs={"pk": pk})
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Add Comment'
+        return context
 
 
 
@@ -131,11 +167,16 @@ class DeleteCommentView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Delete Comment'
+        return context
+    
 
 
 
 def home(request):
-    return render(request, 'tech_savvy_app/home.html')
+    return render(request, 'tech_savvy_app/home.html', {'title': 'Home'})
 
 
 
@@ -148,4 +189,4 @@ def search_post(request):
     if request.method == 'POST':
         search_post = request.POST['search-post'] # name='search-post' from html input
         search_site = Post.objects.filter(title__icontains=search_post) | Post.objects.filter(content__icontains=search_post)
-        return render(request, 'tech_savvy_app/search_post.html', {'search_post': search_post, 'search_site': search_site})
+        return render(request, 'tech_savvy_app/search_post.html', {'search_post': search_post, 'search_site': search_site, 'title': 'Search'})

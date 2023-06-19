@@ -13,7 +13,7 @@ def register(request):
           return redirect('login')
     else:
        form = UserRegisterForm()
-    return render(request, 'users_app/register.html', {'form': form})
+    return render(request, 'users_app/register.html', {'form': form, 'title': 'Register'})
 
 
 # this decorator adds a functionality to an existing function.
@@ -35,6 +35,7 @@ def profile(request):
 
    context = {
       'u_form': u_form,
-      'p_form': p_form
+      'p_form': p_form,
+      'title': 'Profile',
    }
    return render(request, 'users_app/profile.html', context)
