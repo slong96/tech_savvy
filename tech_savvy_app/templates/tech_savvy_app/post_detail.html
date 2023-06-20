@@ -6,20 +6,24 @@
   <!-- changed post to object because that's what DetailView expects. -->
   <div class="all-post-container">
     <div class="detail-post-items">
-      <img class="rounded post-img" src="{{ object.author.profile.image.url }}">
-      <div>
-        <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
-        <!-- django date format |date:"F d, Y"  -->
-        <small class="text-muted">{{ object.date_posted }}</small>
+      <div class="detail-author">
+        <div>
+          <img class="rounded post-img" src="{{ object.author.profile.image.url }}">
+          <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+          <!-- django date format |date:"F d, Y"  -->
+          <small class="text-muted">{{ object.date_posted }}</small>
+        </div>
         {% if object.author == user %}
           <div>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
           </div>
         {% endif %}
-        <h2>{{ object.title }}</h2>
-        <p>{{ object.content|safe }}</p>
       </div>
+      <hr/>
+      <h2>{{ object.title }}</h2>
+      <p>{{ object.content|safe }}</p>
+
     </div>
   </div>
 

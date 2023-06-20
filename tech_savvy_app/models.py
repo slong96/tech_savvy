@@ -8,7 +8,7 @@ from ckeditor.fields import RichTextField
 class Post(models.Model):
     title = models.CharField(max_length=100)
     # content = models.TextField()
-    content = RichTextField(blank=True, null=True)
+    content = RichTextField(blank=False, null=False)
     # didn't put now() because I don't want to execute the function at that point. Just want to pass the function as a default value.
     date_posted = models.DateTimeField(default=timezone.datetime.now)
     # if user is delete, the user's post will be deleted too.
@@ -27,7 +27,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     # content = models.TextField()
-    content = RichTextField(blank=True, null=True)
+    content = RichTextField(blank=False, null=False)
     date_posted = models.DateTimeField(default=timezone.datetime.now)
 
     class Meta:

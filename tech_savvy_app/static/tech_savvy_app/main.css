@@ -59,8 +59,12 @@ a {
   padding: 20px;
   border-radius: 10px;
 }
-.detail-post-items {
-  max-width: fit-content;
+
+.detail-author {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .user-post-container {
@@ -141,6 +145,12 @@ a {
   
   .account-img {
     width: 50%;
+  }
+
+  .detail-author {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
   }
   
   .all-post-container {
