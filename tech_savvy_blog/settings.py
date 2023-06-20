@@ -142,6 +142,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
+# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 AWS_QUERYSTRING_AUTH = False
 CKEDITOR_CONFIGS = {
@@ -185,3 +186,4 @@ AWS_STORAGE_BUCKET_NAME = 'tech-savvy-blog-bucket'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_S3_CUSTOM_DOMAIN = 'tech-savvy-blog-bucket.s3.amazonaws.com'
+AWS_DEFAULT_ACL = 'public-read'
