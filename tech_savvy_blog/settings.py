@@ -142,8 +142,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
 AWS_QUERYSTRING_AUTH = False
 CKEDITOR_CONFIGS = {
     "default": {
