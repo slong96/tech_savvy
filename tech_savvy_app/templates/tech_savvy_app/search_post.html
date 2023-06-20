@@ -9,7 +9,7 @@
 
       {% for search in search_site %}
       <ul>
-        <li>{{ search.author }}: <a href="{% url 'post-detail' search.id %}">{{ search.title }}</a> - {{ search.content }} </li>
+        <li>{{ search.author }}: <a href="{% url 'post-detail' search.id %}">{{ search.title }}</a> - {{ search.content|safe }} </li>
       </ul>
       {% endfor %}
     {% else %}
