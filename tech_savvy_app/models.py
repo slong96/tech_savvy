@@ -2,11 +2,13 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    content = models.TextField()
+    # content = models.TextField()
+    content = RichTextField(blank=True, null=True)
     # didn't put now() because I don't want to execute the function at that point. Just want to pass the function as a default value.
     date_posted = models.DateTimeField(default=timezone.datetime.now)
     # if user is delete, the user's post will be deleted too.
@@ -24,7 +26,8 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField()
+    # content = models.TextField()
+    content = RichTextField(blank=True, null=True)
     date_posted = models.DateTimeField(default=timezone.datetime.now)
 
     class Meta:

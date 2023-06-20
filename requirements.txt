@@ -4,7 +4,9 @@ botocore==1.29.156
 crispy-bootstrap4==2022.1
 dj-database-url==2.0.0
 Django==4.2.2
+django-ckeditor==6.5.1
 django-crispy-forms==2.0
+django-js-asset==2.0.0
 django-storages==1.13.2
 gunicorn==20.1.0
 jmespath==1.0.1
