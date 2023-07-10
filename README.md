@@ -1,6 +1,6 @@
 # Tech Savvy Blog
 
-A place where you can talk about tech and learn something new!
+Tech Savvy Blog is a Python and Django-powered website that caters to tech enthusiasts. With user authentication, blog posting, commenting capabilities, and profile image uploads, it offers a secure and interactive platform for users to share their tech insights and engage in discussions. Join to explore the dynamic world of technology and connect with like-minded individuals on Tech Savvy Blog.
 
 
 
